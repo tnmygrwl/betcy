@@ -65,6 +65,11 @@
         <div class="centered">
           <h2 class="notifification-h1"><strong class="bold-text-2">Congratulations, your Betcy Contract has been submitted!</strong></h2>
           <div class="notification-paragraph"><strong class="bold-text-3">You and your recipient should receive an email with the bet that you have provided. Both of you need to click Agree to make the bet binding.</strong></div>
+          <div></div>
+        </div>
+        <div class="centered">
+          <h2 class="notifification-h1"><strong class="bold-text-2">The Macy's product that you have wagered is:</strong></h2>
+          <div class="notification-paragraph"><strong class="bold-text-3">link goes here</strong></div>
           <div><button style="margin-top:24px;" v-on:click="showEmailPage" class="submit-button w-button">Next</button></div>
         </div>
       </div>

@@ -34,7 +34,7 @@
               <div class="column w-col w-col-2"><img src="images/chevron-mobile-icon.svg" alt="" class="image">
                </div>
               <div class="w-col w-col-5">
-                <label for="rec_name" class="field-label">Recipient&#x27;s Ethereum Address</label>
+                <label for="rec_name" id = "rec" class="field-label">Recipient&#x27;s Ethereum Address</label>
                 <input v-model="eth_2" type="text" class="text-field w-input" maxlength="256" name="rec_name" data-name="rec_name" id="rec_name" required="">
                 </div>
             </div>
@@ -49,7 +49,7 @@
             <h3><strong class="h2">Enter the product ID</strong></h3>
             <textarea v-model="pid" id="pid" name="pid" placeholder="Enter the product ID of the Macy's product you wanna stake in the bet." maxlength="5000" data-name="pid" required="" class="textarea w-input"></textarea></div>
           <div class="separator"></div>
-          <div><input v-on:click="sendEmail" type="submit" value="Submit" data-wait="Please wait..." class="submit-button w-button"></div>
+          <div><input v-on:click="sendEmail" id = "sub" type="submit" value="Submit" data-wait="Please wait..." class="submit-button w-button"></div>
         </form>
         <div v-show="isSuccess" class="w-form-done">
           <div>Thank you! Your submission has been received!</div>

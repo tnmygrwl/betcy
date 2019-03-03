@@ -144,6 +144,35 @@
 
 </script>
 <script>
+
+var ran="wda";
+test.showlivebets(function(ran,error,result1)
+{
+  if(!error)
+  {
+    console.log(result1[result1.length-1]);
+
+      test.showbets(result1[result1.length-1],function(ran,error,result)
+    {
+      if(!error)
+      {
+        console.log(result[3]);
+        console.log(result[9]);
+
+        // $('#').html("Bet:"+result[2]);
+        // $('#').html("Product ID"+result[8]);
+      }
+    });
+
+  }
+  else {
+    console.log(error);
+  }
+});
+
+
+
+
   import axios from 'axios'
 export default {
   name: 'Form',

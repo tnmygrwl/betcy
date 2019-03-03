@@ -1,7 +1,7 @@
 .section {
   padding-bottom: 302px;
-  background-image: url('../images/pinky-pattern.png'), -webkit-gradient(linear, left top, left bottom, from(#0003ff), to(#0003ff));
-  background-image: url('../images/pinky-pattern.png'), linear-gradient(180deg, #0003ff, #0003ff);
+  background-image: url('../images/macys_png.png'), -webkit-gradient(linear, left top, left bottom, from(#0003ff), to(#0003ff));
+  background-image: url('../images/macys_png.png'), linear-gradient(180deg, #0003ff, #0003ff);
   background-position: 50% 50%, 0px 0px;
   background-size: 125px, auto;
   background-attachment: fixed, scroll;

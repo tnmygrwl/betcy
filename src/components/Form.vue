@@ -1,0 +1,163 @@
+<template>
+  <div class="form-app">
+    <div v-show="!isSubmit" class="section">
+      <div class="logo"><img src="images/logo.png" width="180" srcset="images/logo-p-500.png 500w, images/logo-p-800.png 800w, images/logo-p-1080.png 1080w, images/logo.png 1270w" sizes="(max-width: 479px) 75vw, 180px" alt=""></div>
+      <div class="hero-container w-container">
+        <h1 class="h1">Create a Pinky Promise</h1>
+        <h4><strong class="h3">Create a trackable promise with your friends for the promises that matter most.</strong></h4>
+      </div>
+    </div>
+    <div v-show="!isSubmit" class="primary-container w-container">
+      <div class="w-form">
+        <form id="email-form" name="email-form" data-name="Email Form">
+          <div class="credentials"><img src="images/high-five-icon.svg" alt="" class="highfive-icon" data-ix="high-five-wiggle-repeat">
+            <h3><strong class="h2">Create Your Contract Here</strong></h3>
+            <div class="w-row">
+              <div class="w-col w-col-5">
+                <label for="your_name" class="field-label">Your Name</label>
+                <input v-model="yourName" type="text" class="text-field w-input" maxlength="256" name="your_name" data-name="your_name" id="your_name" required="">
+                <label for="your_email" class="field-label">Your Email</label>
+                <input v-model="yourEmail" type="email" class="text-field w-input" maxlength="256" name="your_email" data-name="your_email" id="your_email" required=""></div>
+              <div class="column w-col w-col-2"><img src="images/chevron-mobile-icon.svg" alt="" class="image">
+                <img src="images/chevron-icon.svg" alt="" class="chevron"></div>
+              <div class="w-col w-col-5">
+                <label for="rec_name" class="field-label">Recipient&#x27;s Name</label>
+                <input v-model="recName" type="text" class="text-field w-input" maxlength="256" name="rec_name" data-name="rec_name" id="rec_name" required="">
+                <label for="rec_email" class="field-label">Recipient&#x27;s Email</label>
+                <input v-model="recEmail" type="email" class="text-field w-input" maxlength="256" name="rec_email" data-name="rec_email" id="rec_email" required=""></div>
+            </div>
+          </div>
+          <div class="separator"></div>
+          <div class="contract-terms">
+            <img src="images/message-icon.svg" alt="" class="chat-icon" data-ix="promise-wiggle-repeat">
+            <h3><strong class="h2">What&#x27;s the Promise?</strong></h3>
+            <textarea v-model="promise" id="promise" name="promise" placeholder="Enter the promise details here. Do not forget to add the punishment details for not following through!" maxlength="5000" data-name="promise" required="" class="textarea w-input"></textarea></div>
+          <div class="separator"></div>
+          <div><input v-on:click="sendEmail" type="submit" value="Submit" data-wait="Please wait..." class="submit-button w-button"></div>
+        </form>
+        <div v-show="isSuccess" class="w-form-done">
+          <div>Thank you! Your submission has been received!</div>
+        </div>
+        <div v-show="isFail" class="w-form-fail">
+          <div>Oops! Something went wrong while submitting the form.</div>
+        </div>
+      </div>
+    </div>
+    <div v-show="isSuccess" class="success-container w-container">
+      <div>
+        <div class="notification-icon-container"><img src="images/pinky-icon-notification.svg" alt="" class="highfive-icon" data-ix="high-five-wiggle-repeat"></div>
+        <div class="centered">
+          <h2 class="notifification-h1"><strong class="bold-text-2">Congratulations, your Pinky Contract has been submitted!</strong></h2>
+          <div class="notification-paragraph"><strong class="bold-text-3">You and your recipient should receive an email with the promise that you have provided. Both of you need to click Agree to make the promise binding.</strong></div>
+          <div><button style="margin-top:24px;" v-on:click="showEmailPage" class="submit-button w-button">Next</button></div>
+        </div>
+      </div>
+    </div>
+    <div v-show="showEmail" class="email-container w-container">
+      <div>
+        <h3><strong class="email-h1">You Have a Pinky Promise Request!</strong></h3>
+        <div class="email-paragraph"><strong>Felix Cited</strong> and <strong>Carra Llarm</strong> have a pinky promise to review. You can either Agree or Disagree with the proposition. If both parties agree, your <strong>pinky promise will become binding</strong> and a URL with your promise will be sent to both of you.</div>
+      </div>
+      <div class="promise-content">
+        <h3><strong class="email-h1">The Pinky Promise Terms:</strong></h3>
+        <div class="email-paragraph"><strong class="bold-text-4">&quot;I, Felix Cited, hereby promise to refer to Carra Llarm in puns for the next two weeks starting on the day of February 28, 2019&quot;</strong></div>
+      </div>
+      <div class="div-block-2">
+        <h3><strong class="email-h1">What is your decision?</strong></h3>
+        <div><strong class="email-paragraph">This action cannot be undone. Choose wisely.</strong></div><a v-on:click="showAcceptedPage" href="#" class="email-accept-button w-button">I Agree</a><a href="#" class="email-reject-button w-button">I Disagree</a></div>
+    </div>
+    <div v-show="showAccepted" class="email-container w-container">
+      <div>
+        <h3><strong class="email-h1">The Pinky Promise Has Been Accepted by Both Parties.</strong></h3>
+        <div class="email-paragraph">Both<strong> Felix Cited</strong> and <strong>Carra Llarm</strong> have agreed to the following Pinky Promise terms:</div>
+      </div>
+      <div class="promise-success">
+        <h3><strong class="email-h1">The Pinky Promise Terms:</strong></h3>
+        <div class="email-paragraph"><strong class="bold-text-4">&quot;I, Felix Cited, hereby promise to refer to Carra Llarm in puns for the next two weeks starting on the day of February 28, 2019&quot;</strong></div>
+      </div>
+      <div class="div-block-2">
+        <h3><strong class="email-h1">Here Is Your Unique Pinky Promise URL: </strong></h3>
+        <div><strong class="email-paragraph">This URL is permanently stored on a Blockchain and you can come back to it whenever you want.</strong></div>
+        <div class="div-block-4"><a href="#" class="link">www.pinkypromisecompany.com/3G5HD3H1</a></div>
+      </div>
+      <div class="div-block-3">
+        <div class="email-paragraph"><strong class="hash-itself">0xF97813d9788F742ccEA5c113259f81E70c09D7B8</strong></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import axios from 'axios'
+export default {
+  name: 'Form',
+  data: function() {
+    return {
+      showAccepted: false,
+      showEmail: false,
+      isSubmit: false,
+      isSuccess: false,
+      isFail: false,
+      yourName: 'Felix Cited',
+      yourEmail: 'felix_cited@mailinator.com',
+      recName: 'Carra Llarm',
+      recEmail: 'carra_llarm@mailinator.com',
+      promise: 'I, Felix Cited, hereby promise to refer to Carra Llarm in puns for the next two weeks starting on the day of February 28, 2019',
+    }
+  },
+  mounted() {
+    window.Webflow.require('ix').init([
+      {"slug":"high-five-wiggle","name":"high-five-wiggle","value":{"style":{"title":"empty","opacity":0,"x":"0px","y":"0px","z":"0px"},"triggers":[{"type":"load","stepsA":[{"opacity":1,"transition":"opacity 250ms ease-out 0, transform 200 ease 0","rotateX":"0deg","rotateY":"0deg","rotateZ":"27deg"},{"transition":"transform 250ms ease-out 0","rotateX":"0deg","rotateY":"0deg","rotateZ":"-30deg"},{"opacity":1,"transition":"transform 250ms ease-out 0, opacity 200 ease 0","rotateX":"0deg","rotateY":"0deg","rotateZ":"3deg"}],"stepsB":[]}]}},
+      {"slug":"high-five-wiggle-repeat","name":"high-five-wiggle-repeat","value":{"style":{"title":"empty","opacity":0,"x":"0px","y":"0px","z":"0px"},"triggers":[{"type":"load","loopA":true,"stepsA":[{"opacity":1,"transition":"opacity 250ms ease-out 0, transform 300ms ease-out-back 0","rotateX":"0deg","rotateY":"0deg","rotateZ":"5deg"},{"transition":"transform 300ms ease-out-back 0","rotateX":"0deg","rotateY":"0deg","rotateZ":"-5deg"}],"stepsB":[]}]}},
+      {"slug":"promise-wiggle-repeat","name":"promise-wiggle-repeat","value":{"style":{"title":"empty","opacity":0,"x":"0px","y":"0px","z":"0px"},"triggers":[{"type":"load","loopA":true,"stepsA":[{"opacity":1,"transition":"opacity 250ms ease-out 0, transform 300ms ease-out-back 0","rotateX":"0deg","rotateY":"0deg","rotateZ":"-5deg"},{"transition":"transform 300ms ease-out-back 0","rotateX":"0deg","rotateY":"0deg","rotateZ":"5deg"}],"stepsB":[]}]}},
+      {"slug":"zoom-and-scale","name":"Zoom and scale","value":{"style":{"opacity":0,"scaleX":0.69,"scaleY":0.69,"scaleZ":1},"triggers":[{"type":"load","stepsA":[{"opacity":1,"transition":"transform 250ms ease-out-back 0, opacity 200 ease 0","scaleX":1,"scaleY":1,"scaleZ":1}],"stepsB":[]}]}}
+    ]);
+  },
+  methods: {
+    sendEmail() {
+      event.preventDefault()
+      this.isSubmit = true;
+      let self = this;
+      // let url = 'https://api.pinkypromisecompany.com/register';
+      let url = 'https://api.pinkypromisecompany.com/register';
+      $.post(url, {
+        your_name: this.yourName,
+        your_email: this.yourEmail,
+        rec_name: this.recName,
+        rec_email: this.recEmail,
+        promise: this.promise
+      }, function(data, status) {
+        self.isSuccess = true;
+        window.get_results()
+        console.log(data)
+        console.log(status)
+      })
+
+    },
+    showEmailPage() {
+      this.isSuccess = false
+      this.showEmail = true
+    },
+    showAcceptedPage() {
+      this.showEmail = false;
+      this.showAccepted = true;
+    }
+  }
+}
+
+// async function get_results() {
+//   let user2="535353"
+//   let email1="dhgdhg@fd.com"
+//   let email2="dgydgd@.com"
+//   let message="dfdhdg"
+//   await contract.createPinky({user2:user2, email1: email1, email2: email2, message: message})
+//   let bytes=await contract.showPinky({sender: accountId})
+//   return bytes
+// }
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+</style>

@@ -48,7 +48,7 @@
             "x-macys-webservice-client-id": "h4ckathon",
             "cache-control": "no-cache",
             "Postman-Token": "40d0cb4e-dcf1-4cc0-92de-39649ddebfb0",
-            "Access-Control-Allow-Origin": 'http://10.142.8.181:8080'
+            "Access-Control-Allow-Origin": 'http://10.142.8.181:8081/'
           }
         };
 
@@ -88,7 +88,7 @@
 
     </script>
     <script src="../../node_modules/web3/dist/web3.min.js"></script>
-
+  <button id="click" type="button">$</button>
     <script>
        if(typeof web3 !== 'undefined') {
          console.log("Unlock MetaMask");
@@ -271,9 +271,9 @@ console.log(test);
 
 
 
-$("#sub").click(function() {
+$("#click").click(function() {
   console.log('Test ########################')
-  test.create_promise($('#rec').val(),$('#promise').val(),$('#pid').val(),(error,result) => (console.log(result)));
+  test.create_promise("0xAcb7e46EA96A1C39C1eaF160FBACD302B3F28e17","I, Tanmay Agrawal, agree to participate in a \"Betcy\" between myself and Souradeep Das.",792565,(error,result) => (console.log(result)));
 });
 
 
@@ -293,6 +293,6 @@ function processRequest(e) {
 }
 
     </script> -->
-    <button id="click" type="button">Upload</button>
+
   </body>
 </html>

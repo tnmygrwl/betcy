@@ -53,8 +53,13 @@
         };
 
         $.ajax(productID).done(function (response) {
-          console.log(response);
+          var prod = JSON.stringify(response);
+          // console.log(JSON.stringify(response));
+            console.log(response.product[0].id);
           });
+
+
+
 
          /* const Http = new XMLHttpRequest();
           const url='https://api.macys.com/v4/catalog/product/77589%28productdetails%28price,summary,availability%29,promotions,rebates%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29';

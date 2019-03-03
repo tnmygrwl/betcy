@@ -32,6 +32,10 @@
             <img src="images/message-icon.svg" alt="" class="chat-icon" data-ix="promise-wiggle-repeat">
             <h3><strong class="h2">What&#x27;s the bet about?</strong></h3>
             <textarea v-model="promise" id="promise" name="promise" placeholder="Enter the promise details here. Do not forget to add the punishment details for not following through!" maxlength="5000" data-name="promise" required="" class="textarea w-input"></textarea></div>
+            <div class="separator"></div>
+            <div class="contract-terms">
+            <h3><strong class="h2">Enter the product ID</strong></h3>
+            <textarea v-model="pid" id="pid" name="pid" placeholder="Enter the product ID of the Macy's product you wanna stake in the bet." maxlength="5000" data-name="promise" required="" class="textarea w-input"></textarea></div>
           <div class="separator"></div>
           <div><input v-on:click="sendEmail" type="submit" value="Submit" data-wait="Please wait..." class="submit-button w-button"></div>
         </form>

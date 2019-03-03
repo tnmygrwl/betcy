@@ -26,6 +26,18 @@
                 <label for="rec_email" class="field-label">Recipient&#x27;s Email</label>
                 <input v-model="recEmail" type="email" class="text-field w-input" maxlength="256" name="rec_email" data-name="rec_email" id="rec_email" required=""></div>
             </div>
+            <div class="w-row">
+              <div class="w-col w-col-5">
+                <label for="your_name" class="field-label">Your Ethereum Address</label>
+                <input v-model="eth_1" type="text" class="text-field w-input" maxlength="256" name="your_name" data-name="your_name" id="your_name" required="">
+                </div>
+              <div class="column w-col w-col-2"><img src="images/chevron-mobile-icon.svg" alt="" class="image">
+                <img src="images/chevron-icon.svg" alt="" class="chevron"></div>
+              <div class="w-col w-col-5">
+                <label for="rec_name" class="field-label">Recipient&#x27;s Ethereum Address</label>
+                <input v-model="eth_2" type="text" class="text-field w-input" maxlength="256" name="rec_name" data-name="rec_name" id="rec_name" required="">
+                </div>
+            </div>
           </div>
           <div class="separator"></div>
           <div class="contract-terms">
@@ -35,7 +47,7 @@
             <div class="separator"></div>
             <div class="contract-terms">
             <h3><strong class="h2">Enter the product ID</strong></h3>
-            <textarea v-model="pid" id="pid" name="pid" placeholder="Enter the product ID of the Macy's product you wanna stake in the bet." maxlength="5000" data-name="promise" required="" class="textarea w-input"></textarea></div>
+            <textarea v-model="pid" id="pid" name="pid" placeholder="Enter the product ID of the Macy's product you wanna stake in the bet." maxlength="5000" data-name="pid" required="" class="textarea w-input"></textarea></div>
           <div class="separator"></div>
           <div><input v-on:click="sendEmail" type="submit" value="Submit" data-wait="Please wait..." class="submit-button w-button"></div>
         </form>
@@ -107,6 +119,8 @@ export default {
       recName: 'Souradeep Das',
       recEmail: 'souradeep@berkeley.com',
       promise: 'I, Tanmay Agrawal, agree to participate in a "Betcy" between myself and Souradeep Das.',
+      eth_1: '0xD91f848796e092De699C535f8eD72024Af079372',
+      eth_2: '0xAcb7e46EA96A1C39C1eaF160FBACD302B3F28e17',
     }
   },
   mounted() {

@@ -3,8 +3,8 @@
     <div v-show="!isSubmit" class="section">
       <div class="logo"><img src="images/logo.png" width="180" srcset="images/logo-p-500.png 500w, images/logo-p-800.png 800w, images/logo-p-1080.png 1080w, images/logo.png 1270w" sizes="(max-width: 479px) 75vw, 180px" alt=""></div>
       <div class="hero-container w-container">
-        <h1 class="h1">Create a Pinky Promise</h1>
-        <h4><strong class="h3">Create a trackable promise with your friends for the promises that matter most.</strong></h4>
+        <h1 class="h1">Bet a Macy's</h1>
+        <h4><strong class="h3">Create a trackable bet with your friends for a Macy's product.</strong></h4>
       </div>
     </div>
     <div v-show="!isSubmit" class="primary-container w-container">
@@ -30,7 +30,7 @@
           <div class="separator"></div>
           <div class="contract-terms">
             <img src="images/message-icon.svg" alt="" class="chat-icon" data-ix="promise-wiggle-repeat">
-            <h3><strong class="h2">What&#x27;s the Promise?</strong></h3>
+            <h3><strong class="h2">What&#x27;s the bet about?</strong></h3>
             <textarea v-model="promise" id="promise" name="promise" placeholder="Enter the promise details here. Do not forget to add the punishment details for not following through!" maxlength="5000" data-name="promise" required="" class="textarea w-input"></textarea></div>
           <div class="separator"></div>
           <div><input v-on:click="sendEmail" type="submit" value="Submit" data-wait="Please wait..." class="submit-button w-button"></div>
@@ -47,20 +47,20 @@
       <div>
         <div class="notification-icon-container"><img src="images/pinky-icon-notification.svg" alt="" class="highfive-icon" data-ix="high-five-wiggle-repeat"></div>
         <div class="centered">
-          <h2 class="notifification-h1"><strong class="bold-text-2">Congratulations, your Pinky Contract has been submitted!</strong></h2>
-          <div class="notification-paragraph"><strong class="bold-text-3">You and your recipient should receive an email with the promise that you have provided. Both of you need to click Agree to make the promise binding.</strong></div>
+          <h2 class="notifification-h1"><strong class="bold-text-2">Congratulations, your Betcy Contract has been submitted!</strong></h2>
+          <div class="notification-paragraph"><strong class="bold-text-3">You and your recipient should receive an email with the bet that you have provided. Both of you need to click Agree to make the bet binding.</strong></div>
           <div><button style="margin-top:24px;" v-on:click="showEmailPage" class="submit-button w-button">Next</button></div>
         </div>
       </div>
     </div>
     <div v-show="showEmail" class="email-container w-container">
       <div>
-        <h3><strong class="email-h1">You Have a Pinky Promise Request!</strong></h3>
-        <div class="email-paragraph"><strong>Felix Cited</strong> and <strong>Carra Llarm</strong> have a pinky promise to review. You can either Agree or Disagree with the proposition. If both parties agree, your <strong>pinky promise will become binding</strong> and a URL with your promise will be sent to both of you.</div>
+        <h3><strong class="email-h1">You Have a Betcy Request!</strong></h3>
+        <div class="email-paragraph"><strong>Tanmay Agrawal</strong> and <strong>Souradeep Das</strong> have a Betcy pending for review. You can either Agree or Disagree. If both parties agree, your <strong>Betcy will become binding</strong> and a URL with your bet will be sent to both of you.</div>
       </div>
       <div class="promise-content">
-        <h3><strong class="email-h1">The Pinky Promise Terms:</strong></h3>
-        <div class="email-paragraph"><strong class="bold-text-4">&quot;I, Felix Cited, hereby promise to refer to Carra Llarm in puns for the next two weeks starting on the day of February 28, 2019&quot;</strong></div>
+        <h3><strong class="email-h1">The Betcy Terms:</strong></h3>
+        <div class="email-paragraph"><strong class="bold-text-4">&quot;I, Tanmay Agrawal, agree to participate in a "Betcy" between myself and Souradeep Das.&quot;</strong></div>
       </div>
       <div class="div-block-2">
         <h3><strong class="email-h1">What is your decision?</strong></h3>
@@ -68,17 +68,17 @@
     </div>
     <div v-show="showAccepted" class="email-container w-container">
       <div>
-        <h3><strong class="email-h1">The Pinky Promise Has Been Accepted by Both Parties.</strong></h3>
-        <div class="email-paragraph">Both<strong> Felix Cited</strong> and <strong>Carra Llarm</strong> have agreed to the following Pinky Promise terms:</div>
+        <h3><strong class="email-h1">The Betcy Has Been Accepted by Both Parties.</strong></h3>
+        <div class="email-paragraph">Both<strong> Tanmay Agrawal</strong> and <strong>Souradeep Das</strong> have agreed to the following Betcy terms:</div>
       </div>
       <div class="promise-success">
-        <h3><strong class="email-h1">The Pinky Promise Terms:</strong></h3>
-        <div class="email-paragraph"><strong class="bold-text-4">&quot;I, Felix Cited, hereby promise to refer to Carra Llarm in puns for the next two weeks starting on the day of February 28, 2019&quot;</strong></div>
+        <h3><strong class="email-h1">The Betcy Terms:</strong></h3>
+        <div class="email-paragraph"><strong class="bold-text-4">&quot;I, Tanmay Agrawal, agree to participate in a "Betcy" between myself and Souradeep Das.&quot;</strong></div>
       </div>
       <div class="div-block-2">
-        <h3><strong class="email-h1">Here Is Your Unique Pinky Promise URL: </strong></h3>
-        <div><strong class="email-paragraph">This URL is permanently stored on a Blockchain and you can come back to it whenever you want.</strong></div>
-        <div class="div-block-4"><a href="#" class="link">www.pinkypromisecompany.com/3G5HD3H1</a></div>
+        <h3><strong class="email-h1">Here Is Your Unique Betcy URL: </strong></h3>
+        <div><strong class="email-paragraph">This URL is permanently stored on an Ethereum Blockchain and you can come back to it whenever you want.</strong></div>
+        <div class="div-block-4"><a href="#" class="link">www.betcy.com/3G5HD3H1</a></div>
       </div>
       <div class="div-block-3">
         <div class="email-paragraph"><strong class="hash-itself">0xF97813d9788F742ccEA5c113259f81E70c09D7B8</strong></div>
@@ -98,11 +98,11 @@ export default {
       isSubmit: false,
       isSuccess: false,
       isFail: false,
-      yourName: 'Felix Cited',
-      yourEmail: 'felix_cited@mailinator.com',
-      recName: 'Carra Llarm',
-      recEmail: 'carra_llarm@mailinator.com',
-      promise: 'I, Felix Cited, hereby promise to refer to Carra Llarm in puns for the next two weeks starting on the day of February 28, 2019',
+      yourName: 'Tanmay Agrawal',
+      yourEmail: 'tanmayagrawal@berkeley.edu',
+      recName: 'Souradeep Das',
+      recEmail: 'souradeep@berkeley.com',
+      promise: 'I, Tanmay Agrawal, agree to participate in a "Betcy" between myself and Souradeep Das.',
     }
   },
   mounted() {

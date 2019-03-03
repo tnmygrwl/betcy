@@ -281,6 +281,9 @@
   margin: 0 auto;
   display: block;
 }
+a {
+  color: blue;
+}
 
 html.w-mod-js *[data-ix="high-five-wiggle"] {
   opacity: 0;

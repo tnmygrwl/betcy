@@ -69,7 +69,7 @@
         </div>
         <div class="centered">
           <h2 class="notifification-h1"><strong class="bold-text-2">The Macy's product that you have wagered is:</strong></h2>
-          <div class="notification-paragraph"><strong class="bold-text-3">link goes here</strong></div>
+          <div class="notification-paragraph"><strong class="bold-text-3"><a href="http://www1.macys.com/shop/product/givenchy-16-necklace-rose-gold-tone-crystal-fireball-pendant-necklace?ID=792565" target="blank">http://www1.macys.com/shop/product/givenchy-16-necklace-rose-gold-tone-crystal-fireball-pendant-necklace?ID=792565</a></strong></div>
           <div><button style="margin-top:24px;" v-on:click="showEmailPage" class="submit-button w-button">Next</button></div>
         </div>
       </div>

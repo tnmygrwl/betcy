@@ -1,0 +1,304 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "betsy",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "MakeaBet",
+                    "slots": [
+                        {
+                            "name": "tofriend",
+                            "type": "AMAZON.Person",
+                            "samples": [
+                                "I bet {tofriend}",
+                                "I bet to {tofriend}",
+                                "Make a bet with {tofriend}",
+                                "I am making a bet with {tofriend}",
+                                "with {tofriend}",
+                                "{tofriend}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I bet {tofriend}",
+                        "I bet to {tofriend}",
+                        "Make a bet with {tofriend}",
+                        "I am making a bet with {tofriend}",
+                        "with {tofriend}",
+                        "{tofriend}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "Date",
+                    "slots": [
+                        {
+                            "name": "committDate",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{committDate}",
+                                "I want to make a date {committDate}",
+                                "Make it {committDate}",
+                                "Bet is valid till {committDate}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "{committDate}",
+                        "I want to make a date {committDate}",
+                        "Make it {committDate}",
+                        "Bet is valid till {committDate}"
+                    ]
+                },
+                {
+                    "name": "Bets",
+                    "slots": [
+                        {
+                            "name": "betmade",
+                            "type": "List_of_betsmade",
+                            "samples": [
+                                "I want to bet {betmade}",
+                                "I will be betting {betmade}",
+                                "{betmade}",
+                                "The bet is  {betmade}",
+                                "My bet is {betmade}",
+                                "I am betting {betmade}",
+                                "I want to make a bet that {betmade}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want to bet {betmade}",
+                        "I will be betting {betmade}",
+                        "{betmade}",
+                        "The bet is  {betmade}",
+                        "My bet is {betmade}",
+                        "I am betting {betmade}",
+                        "I want to make a bet that {betmade}"
+                    ]
+                },
+                {
+                    "name": "Stake",
+                    "slots": [
+                        {
+                            "name": "productid",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "samples": [
+                                "I wage {productid}",
+                                "I bet {productid}",
+                                "I will be betting {productid}",
+                                "I am planning to bet {productid}",
+                                "{productid}",
+                                "Bet {productid}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I wage {productid}",
+                        "I bet {productid}",
+                        "I will be betting {productid}",
+                        "I am planning to bet {productid}",
+                        "{productid}",
+                        "Bet {productid}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "List_of_betsmade",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "I will exercise daily"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "I will dance tomorrow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "I can eat an entire pizza"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "I will never smoke again"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "I will drink"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "I will meditate"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "I will yoga"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "Stake",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "productid",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.246499996799.397286631297"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Bets",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "betmade",
+                            "type": "List_of_betsmade",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1473785789856.1413941271906"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Date",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "committDate",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.659655325399.1258487306746"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "MakeaBet",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "tofriend",
+                            "type": "AMAZON.Person",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.243248881717.426408609177"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.246499996799.397286631297",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What are you betting?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What are you staking?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1473785789856.1413941271906",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What is your bet?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What are you betting?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What bet do you want to make?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.659655325399.1258487306746",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "How long is your bet valid?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Is it a one time bet?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want me to save the date?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.243248881717.426408609177",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "The bet is being made with whom?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Who are you making a bet with?"
+                    }
+                ]
+            }
+        ]
+    }
+}

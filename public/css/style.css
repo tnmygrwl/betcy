@@ -273,6 +273,14 @@
   margin-top: 24px;
   word-break: break-all;
 }
+#click {
+  background-color: #0003ff;
+  color: white;
+  text-align: center;
+  font-size: 26px;
+  margin: 0 auto;
+  display: block;
+}
 
 html.w-mod-js *[data-ix="high-five-wiggle"] {
   opacity: 0;

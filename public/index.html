@@ -55,16 +55,29 @@
           console.log(response);
           });
           */
-          const Http = new XMLHttpRequest();
+         /* const Http = new XMLHttpRequest();
           const url='https://api.macys.com/v4/catalog/product/77589%28productdetails%28price,summary,availability%29,promotions,rebates%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29';
           Http.open("GET", url);
           Http.setRequestHeader("Accept", "application/json")
           Http.setRequestHeader("x-macys-webservice-client-id", "h4ckathon")
-          Http.responseType = "jsonp";
           Http.send();
           Http.onreadystatechange=(e)=>{
           console.log(Http.responseText)
+          }*/
+        function jsonCallback(json){
+          console.log(json);
+        }
+
+        $.ajax({
+          url: "https://api.macys.com/v4/catalog/product/77589%28productdetails%28summary%29%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29",
+          dataType: "jsonp",
+          method: "GET",
+          headers: {
+            "Accept": "application/json",
+            "x-macys-webservice-client-id": "h4ckathon",
+            "cache-control": "no-cache",
           }
+        });
 
         
     </script>

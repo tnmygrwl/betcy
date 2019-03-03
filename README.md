@@ -1,8 +1,8 @@
-# pinky-promise
+# Betcy
 
 ## Our Website
 ```
-http://www.pinkypromisecompany.com/
+http://www.betcy.com/
 ```
 
 ## Project setup

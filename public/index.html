@@ -37,71 +37,11 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="./js/config.js"></script>
     <script src="./js/main.js"></script>
-    <script>
-      var getProductID = {
-         "async": true,
-         "crossDomain": true,
-         "url": "https://www.jsonstore.io/cc18fd5358601223f518adc547cb765a84d85d34fbdfe3466b55d6e454f29bf1",
-         "method": "GET"
-         };
+<button id="clic" type="button">$</button>
+<button id="clic2" type="button">$$</button>
 
-       $.ajax(getProductID).done(function (response) {
-         var prod = JSON.stringify(response);
-         // console.log(JSON.stringify(response));
-           console.log(response.result);
-         });
-
-       var setProductID = {
-          "async": true,
-          "crossDomain": true,
-          "url": "https://api.macys.com/v4/catalog/product/77589%28productdetails%28summary%29%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29",
-          "method": "GET",
-          "headers": {
-            "Accept": "application/json",
-            "x-macys-webservice-client-id": "h4ckathon",
-            "cache-control": "no-cache",
-            "Postman-Token": "40d0cb4e-dcf1-4cc0-92de-39649ddebfb0",
-            "Access-Control-Allow-Origin": 'http://10.142.8.181:8081/'
-          }
-        };
-
-        $.ajax(setProductID).done(function (response) {
-          var prod = JSON.stringify(response);
-          // console.log(JSON.stringify(response));
-            console.log(response.product[0].id);
-          });
-
-
-
-
-         /* const Http = new XMLHttpRequest();
-          const url='https://api.macys.com/v4/catalog/product/77589%28productdetails%28price,summary,availability%29,promotions,rebates%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29';
-          Http.open("GET", url);
-          Http.setRequestHeader("Accept", "application/json")
-          Http.setRequestHeader("x-macys-webservice-client-id", "h4ckathon")
-          Http.send();
-          Http.onreadystatechange=(e)=>{
-          console.log(Http.responseText)
-          }*/
-        // function jsonCallback(json){
-        //   console.log(json);
-        // }
-        //
-        // $.ajax({
-        //   url: "https://api.macys.com/v4/catalog/product/77589%28productdetails%28summary%29%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29",
-        //   dataType: "jsonp",
-        //   method: "GET",
-        //   headers: {
-        //     "Accept": "application/json",
-        //     "x-macys-webservice-client-id": "h4ckathon",
-        //     "cache-control": "no-cache",
-        //   }
-        // });
-
-
-    </script>
     <script src="../../node_modules/web3/dist/web3.min.js"></script>
-  <button id="click" type="button">$</button>
+
     <script>
        if(typeof web3 !== 'undefined') {
          console.log("Unlock MetaMask");
@@ -160,6 +100,24 @@
 			{
 				"name": "bettext",
 				"type": "string"
+			}
+		],
+		"name": "create_init",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "sec",
+				"type": "address"
+			},
+			{
+				"name": "bettext",
+				"type": "string"
 			},
 			{
 				"name": "productid",
@@ -167,6 +125,20 @@
 			}
 		],
 		"name": "create_promise",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "prodid",
+				"type": "uint256"
+			}
+		],
+		"name": "finish_init",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -277,18 +249,108 @@
 ]);
 
 
-var test = testContract.at("0x056662a5b0803f86157cee301ef925e8e26f1345");
+var test = testContract.at("0xddad47e9b65d51459762f5d43fb649faa07fffdd");
 console.log(test);
 
 
 
 
 
-$("#click").click(function() {
-  console.log('Test ########################')
-  test.create_promise("0xAcb7e46EA96A1C39C1eaF160FBACD302B3F28e17","I, Tanmay Agrawal, agree to participate in a \"Betcy\" between myself and Souradeep Das.",792565,(error,result) => (console.log(result)));
-});
 
+
+
+
+</script>
+
+<script>
+  var getProductID = {
+     "async": true,
+     "crossDomain": true,
+     "url": "https://www.jsonstore.io/cc18fd5358601223f518adc547cb765a84d85d34fbdfe3466b55d6e454f29bf1",
+     "method": "GET"
+     };
+
+   $.ajax(getProductID).done(function (response) {
+     var prod = JSON.stringify(response);
+     // console.log(JSON.stringify(response));
+       console.log(response.result);
+       // $("#click").click(function() {
+       //   console.log('Test ########################')
+       //   test.create_promise("0xAcb7e46EA96A1C39C1eaF160FBACD302B3F28e17","I, Tanmay Agrawal, agree to participate in a \"Betcy\" between myself and Souradeep Das.",792565,(error,result) => (console.log(result)));
+       // });
+       $("#clic2").click(function() {
+         test.finish_init(response.result,(error,result) => (console.log(result)));
+       });
+     });
+     var getName = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://www.jsonstore.io/f69f67573b1097131a3d0dd3238f05c01eb95d943adc8ec173d9b903f0989419",
+        "method": "GET"
+        };
+     $.ajax(getName).done(function (response) {
+       var prod = JSON.stringify(response);
+       // console.log(JSON.stringify(response));
+         console.log(response.result.receiver);
+         // $("#click").click(function() {
+         //   console.log('Test ########################')
+         //   test.create_promise("0xAcb7e46EA96A1C39C1eaF160FBACD302B3F28e17","I, Tanmay Agrawal, agree to participate in a \"Betcy\" between myself and Souradeep Das.",792565,(error,result) => (console.log(result)));
+         // });
+         $("#clic").click(function() {
+           console.log("###################");
+           test.create_init("0xAcb7e46EA96A1C39C1eaF160FBACD302B3F28e17",response.result.receiver,(error,result) => (console.log(result)));
+         });
+       });
+
+
+
+
+   var setProductID = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://api.macys.com/v4/catalog/product/77589%28productdetails%28summary%29%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29",
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json",
+        "x-macys-webservice-client-id": "h4ckathon",
+        "cache-control": "no-cache",
+        "Postman-Token": "40d0cb4e-dcf1-4cc0-92de-39649ddebfb0",
+        "Access-Control-Allow-Origin": 'http://10.142.8.181:8081/'
+      }
+    };
+
+    $.ajax(setProductID).done(function (response) {
+      var prod = JSON.stringify(response);
+      // console.log(JSON.stringify(response));
+        console.log(response.product[0].id);
+      });
+
+
+
+
+     /* const Http = new XMLHttpRequest();
+      const url='https://api.macys.com/v4/catalog/product/77589%28productdetails%28price,summary,availability%29,promotions,rebates%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29';
+      Http.open("GET", url);
+      Http.setRequestHeader("Accept", "application/json")
+      Http.setRequestHeader("x-macys-webservice-client-id", "h4ckathon")
+      Http.send();
+      Http.onreadystatechange=(e)=>{
+      console.log(Http.responseText)
+      }*/
+    // function jsonCallback(json){
+    //   console.log(json);
+    // }
+    //
+    // $.ajax({
+    //   url: "https://api.macys.com/v4/catalog/product/77589%28productdetails%28summary%29%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29",
+    //   dataType: "jsonp",
+    //   method: "GET",
+    //   headers: {
+    //     "Accept": "application/json",
+    //     "x-macys-webservice-client-id": "h4ckathon",
+    //     "cache-control": "no-cache",
+    //   }
+    // });
 
 
 </script>

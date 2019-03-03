@@ -32,7 +32,7 @@
                 <input v-model="eth_1" type="text" class="text-field w-input" maxlength="256" name="your_name" data-name="your_name" id="your_name" required="">
                 </div>
               <div class="column w-col w-col-2"><img src="images/chevron-mobile-icon.svg" alt="" class="image">
-                <img src="images/chevron-icon.svg" alt="" class="chevron"></div>
+               </div>
               <div class="w-col w-col-5">
                 <label for="rec_name" class="field-label">Recipient&#x27;s Ethereum Address</label>
                 <input v-model="eth_2" type="text" class="text-field w-input" maxlength="256" name="rec_name" data-name="rec_name" id="rec_name" required="">

@@ -108,6 +108,196 @@
   </div>
 </template>
 
+    <script>
+       if(typeof web3 !== 'undefined') {
+         console.log("Unlock MetaMask");
+         web3 = new Web3(web3.currentProvider);
+       }
+       else {
+         console.log("Install MetaMask");
+         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:3000"));
+       }
+       web3.version.getNetwork((err, netId) => {
+  switch (netId) {
+    case "1":
+      console.log('This is mainnet')
+      break
+    case "2":
+      console.log('This is the deprecated Morden test network.')
+      break
+    case "3":
+      console.log('This is the ropsten test network.')
+      break
+    case "4":
+      console.log('This is the Rinkeby test network.')
+      break
+    case "42":
+      console.log('This is the Kovan test network.')
+      break
+    default:
+      console.log('This is an unknown network.')
+  }
+})
+
+       web3.eth.defaultAccount=web3.eth.accounts[0];
+
+       var testContract = web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "b_id",
+				"type": "uint256"
+			}
+		],
+		"name": "acceptbet",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "sec",
+				"type": "address"
+			},
+			{
+				"name": "bettext",
+				"type": "string"
+			},
+			{
+				"name": "productid",
+				"type": "uint256"
+			}
+		],
+		"name": "create_promise",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "show_pending_requests",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "b_id",
+				"type": "uint256"
+			}
+		],
+		"name": "show_validity",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "b_id",
+				"type": "uint256"
+			}
+		],
+		"name": "showbets",
+		"outputs": [
+			{
+				"name": "bet_id",
+				"type": "uint256"
+			},
+			{
+				"name": "creator",
+				"type": "address"
+			},
+			{
+				"name": "player",
+				"type": "address"
+			},
+			{
+				"name": "text",
+				"type": "string"
+			},
+			{
+				"name": "due_date",
+				"type": "string"
+			},
+			{
+				"name": "witness1",
+				"type": "address"
+			},
+			{
+				"name": "witness2",
+				"type": "address"
+			},
+			{
+				"name": "witness3",
+				"type": "address"
+			},
+			{
+				"name": "validity",
+				"type": "uint256"
+			},
+			{
+				"name": "productid",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "showlivebets",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+
+
+var test = testContract.at("0x056662a5b0803f86157cee301ef925e8e26f1345");
+console.log(test);
+
+
+
+
+
+$("#sub").click(function() {
+  console.log('Test ########################')
+  test.create_promise($('#rec').val(),$('#promise').val(),$('#pid').val(),(error,result) => (console.log(result)));
+});
+
+
+
+</script>
 <script>
   import axios from 'axios'
 export default {
@@ -180,6 +370,7 @@ export default {
 // }
 
 </script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

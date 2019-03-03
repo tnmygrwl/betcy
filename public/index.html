@@ -272,7 +272,8 @@ console.log(test);
 
 
 $("#sub").click(function() {
-  test.create_promise($('#rec').val(),(error,result) => (console.log(result)));
+  console.log('Test ########################')
+  test.create_promise($('#rec').val(),$('#promise').val(),$('#pid').val(),(error,result) => (console.log(result)));
 });
 
 

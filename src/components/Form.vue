@@ -109,193 +109,38 @@
 </template>
 
     <script>
-       if(typeof web3 !== 'undefined') {
-         console.log("Unlock MetaMask");
-         web3 = new Web3(web3.currentProvider);
-       }
-       else {
-         console.log("Install MetaMask");
-         web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:3000"));
-       }
-       web3.version.getNetwork((err, netId) => {
-  switch (netId) {
-    case "1":
-      console.log('This is mainnet')
-      break
-    case "2":
-      console.log('This is the deprecated Morden test network.')
-      break
-    case "3":
-      console.log('This is the ropsten test network.')
-      break
-    case "4":
-      console.log('This is the Rinkeby test network.')
-      break
-    case "42":
-      console.log('This is the Kovan test network.')
-      break
-    default:
-      console.log('This is an unknown network.')
-  }
-})
+      var getProductID = {
+               "async": true,
+               "crossDomain": true,
+               "url": "https://www.jsonstore.io/cc18fd5358601223f518adc547cb765a84d85d34fbdfe3466b55d6e454f29bf1",
+               "method": "GET"
+               };
 
-       web3.eth.defaultAccount=web3.eth.accounts[0];
+             $.ajax(getProductID).done(function (response) {
+               var prod = JSON.stringify(response);
+               // console.log(JSON.stringify(response));
+                 console.log(response.result);
+               });
 
-       var testContract = web3.eth.contract([
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "b_id",
-				"type": "uint256"
-			}
-		],
-		"name": "acceptbet",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "sec",
-				"type": "address"
-			},
-			{
-				"name": "bettext",
-				"type": "string"
-			},
-			{
-				"name": "productid",
-				"type": "uint256"
-			}
-		],
-		"name": "create_promise",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "show_pending_requests",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "b_id",
-				"type": "uint256"
-			}
-		],
-		"name": "show_validity",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "b_id",
-				"type": "uint256"
-			}
-		],
-		"name": "showbets",
-		"outputs": [
-			{
-				"name": "bet_id",
-				"type": "uint256"
-			},
-			{
-				"name": "creator",
-				"type": "address"
-			},
-			{
-				"name": "player",
-				"type": "address"
-			},
-			{
-				"name": "text",
-				"type": "string"
-			},
-			{
-				"name": "due_date",
-				"type": "string"
-			},
-			{
-				"name": "witness1",
-				"type": "address"
-			},
-			{
-				"name": "witness2",
-				"type": "address"
-			},
-			{
-				"name": "witness3",
-				"type": "address"
-			},
-			{
-				"name": "validity",
-				"type": "uint256"
-			},
-			{
-				"name": "productid",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "showlivebets",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	}
-]);
+             var setProductID = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.macys.com/v4/catalog/product/77589%28productdetails%28summary%29%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29",
+                "method": "GET",
+                "headers": {
+                  "Accept": "application/json",
+                  "x-macys-webservice-client-id": "h4ckathon",
+                  "cache-control": "no-cache",
+                  "Postman-Token": "40d0cb4e-dcf1-4cc0-92de-39649ddebfb0",
+                  "Access-Control-Allow-Origin": 'http://10.142.8.181:8081/'
+                }
+              };
 
-
-var test = testContract.at("0x056662a5b0803f86157cee301ef925e8e26f1345");
-console.log(test);
-
-
-
-
-
-$("#sub").click(function() {
-  console.log('Test ########################')
-  test.create_promise($('#rec').val(),$('#promise').val(),$('#pid').val(),(error,result) => (console.log(result)));
-});
-
-
+              $.ajax(setProductID).done(function (response) {
+                var prod = JSON.stringify(response);
+                // console.log(JSON.stringify(response));
+                  console.log(response.product[0].id);
+                });
 
 </script>
 <script>

@@ -124,6 +124,7 @@ export default {
       recName: 'Souradeep Das',
       recEmail: 'souradeep@berkeley.com',
       promise: 'I, Tanmay Agrawal, agree to participate in a "Betcy" between myself and Souradeep Das.',
+      pid: '792565',
       eth_1: '0xD91f848796e092De699C535f8eD72024Af079372',
       eth_2: '0xAcb7e46EA96A1C39C1eaF160FBACD302B3F28e17',
     }

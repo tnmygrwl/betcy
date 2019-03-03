@@ -38,7 +38,20 @@
     <script src="./js/config.js"></script>
     <script src="./js/main.js"></script>
     <script>
-       var productID = {
+      var getProductID = {
+         "async": true,
+         "crossDomain": true,
+         "url": "https://www.jsonstore.io/cc18fd5358601223f518adc547cb765a84d85d34fbdfe3466b55d6e454f29bf1",
+         "method": "GET"
+         };
+
+       $.ajax(getProductID).done(function (response) {
+         var prod = JSON.stringify(response);
+         // console.log(JSON.stringify(response));
+           console.log(response.result);
+         });
+
+       var setProductID = {
           "async": true,
           "crossDomain": true,
           "url": "https://api.macys.com/v4/catalog/product/77589%28productdetails%28summary%29%29?productID=%2077589,520910&productdetails=%28productdetails%28price,summary%29%29",
@@ -52,7 +65,7 @@
           }
         };
 
-        $.ajax(productID).done(function (response) {
+        $.ajax(setProductID).done(function (response) {
           var prod = JSON.stringify(response);
           // console.log(JSON.stringify(response));
             console.log(response.product[0].id);

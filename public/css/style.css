@@ -1,7 +1,7 @@
 .section {
   padding-bottom: 302px;
-  background-image: url('../images/macys_png.png'), -webkit-gradient(linear, left top, left bottom, from(#0003ff), to(#0003ff));
-  background-image: url('../images/macys_png.png'), linear-gradient(180deg, #0003ff, #0003ff);
+  background-image: url('../images/macy2.png'), -webkit-gradient(linear, left top, left bottom, from(#ffe5fd), to(#ffe5fd));
+  background-image: url('../images/macy2.png'), linear-gradient(180deg, #0003ff, #0003ff);
   background-position: 50% 50%, 0px 0px;
   background-size: 125px, auto;
   background-attachment: fixed, scroll;
@@ -24,8 +24,8 @@
 }
 
 .body {
-  background-color: #f1f1f1;
-  color: #000;
+  background-color: #ffe5fd;
+  color: #ffe5fd;
 }
 
 .primary-container {
@@ -72,7 +72,7 @@
   margin-left: auto;
   padding: 25px 92px;
   border-radius: 4px;
-  background-color: #0002fc;
+  background-color: #0003ff;
   font-size: 1.5em;
   font-weight: 700;
 }

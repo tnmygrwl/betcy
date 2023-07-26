@@ -6,22 +6,16 @@ from botocore.vendored import requests
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
     return {
-        'outputSpeech': {
-            'type': 'PlainText',
-            'text': output
-        },
+        'outputSpeech': {'type': 'PlainText', 'text': output},
         'card': {
             'type': 'Simple',
-            'title': "SessionSpeechlet - " + title,
-            'content': "SessionSpeechlet - " + output
+            'title': f"SessionSpeechlet - {title}",
+            'content': f"SessionSpeechlet - {output}",
         },
         'reprompt': {
-            'outputSpeech': {
-                'type': 'PlainText',
-                'text': reprompt_text
-            }
+            'outputSpeech': {'type': 'PlainText', 'text': reprompt_text}
         },
-        'shouldEndSession': should_end_session
+        'shouldEndSession': should_end_session,
     }
 
 
@@ -67,8 +61,8 @@ def who_is_the_receiver(intent, session):
     session_attributes = {}
     should_end_session = False
     name=intent['slots']['tofriend']['value']
-    speech_output = "I will create a smart contract between you and "+ name +". What is your bet?"
-    reprompt_text = "I will create a smart contract between you and "+ name +". What is your bet?"
+    speech_output = f"I will create a smart contract between you and {name}. What is your bet?"
+    reprompt_text = f"I will create a smart contract between you and {name}. What is your bet?"
     url = "https://www.jsonstore.io/54298701bfa16f8c77653c87b9008c3f3a681c74ca82c59649efc9159f910e46"
     pay={'receiver': name}
     headers = {
@@ -86,8 +80,8 @@ def what_is_the_bet(intent,session):
     session_attributes = {}
     should_end_session = False
     name=intent['slots']['betmade']['value']
-    speech_output = "Your bet is on "+ name +". What is your wager?"
-    reprompt_text = "Your bet is on "+ name +". What is your wager?"
+    speech_output = f"Your bet is on {name}. What is your wager?"
+    reprompt_text = f"Your bet is on {name}. What is your wager?"
     url="https://www.jsonstore.io/f69f67573b1097131a3d0dd3238f05c01eb95d943adc8ec173d9b903f0989419"
     pay={'receiver': name}
     headers = {
@@ -105,8 +99,8 @@ def what_is_the_wager(intent,session):
     session_attributes = {}
     should_end_session = False
     name=intent['slots']['productid']['value']
-    speech_output = "Your wager is Macy's product with web id "+ str(name) +". When is your commit date?"
-    reprompt_text = "Your wager is Macy's product with web id "+ str(name) +". When is your commit date?"
+    speech_output = f"Your wager is Macy's product with web id {str(name)}. When is your commit date?"
+    reprompt_text = f"Your wager is Macy's product with web id {str(name)}. When is your commit date?"
     url = "https://www.jsonstore.io/cc18fd5358601223f518adc547cb765a84d85d34fbdfe3466b55d6e454f29bf1"
     headers = {
         'Content-Type': "application/json",
@@ -122,8 +116,8 @@ def what_is_the_committDate(intent,session):
     session_attributes = {}
     should_end_session = False
     name=intent['slots']['committDate']['value']
-    speech_output = "Your bet is due on "+ name +". I'm deploying it on the Ethereum Blockchain."
-    reprompt_text = "Your bet is due on "+ name +". I'm deploying it on the Ethereum Blockchain."
+    speech_output = f"Your bet is due on {name}. I'm deploying it on the Ethereum Blockchain."
+    reprompt_text = f"Your bet is due on {name}. I'm deploying it on the Ethereum Blockchain."
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -169,7 +163,7 @@ def on_intent(intent_request, session):
         return what_is_the_committDate(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
-    elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
+    elif intent_name in ["AMAZON.CancelIntent", "AMAZON.StopIntent"]:
         return handle_session_end_request()
     else:
         raise ValueError("Invalid intent")
